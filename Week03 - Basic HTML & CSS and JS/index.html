@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-Camp 19 - App Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="p-4 bg-orange-500 text-white font-bold">
+            IT Camp 19 - ค่ายแอพ เทรนปู๊นๆ
+        </div>
+    </nav>
+
+    <div class="p-14 pt-4">
+        <div class="grid grid-cols-3 grid-flow-col gap-8 mt-8">
+            <div class="col-span-2 text-center">
+                <input type="text" name="" id="searchBar" class="border-2 rounded-xl w-8/12 py-2 px-4"
+                    placeholder="ค้นหาเลยยยยย !">
+                <button class="p-2 px-4 ml-4 bg-orange-500 text-white border-2 rounded-xl"
+                    id="searchButton">ค้นหา</button>
+                <p class="p-2 mt-8 font-bold hidden" id="searchResultFor">ผลการค้นหาสำหรับ : NULL (NULL รายการ)</p>
+
+                <div class="grid grid-cols-3 gap-2 mt-8" id="menuCardContainer"></div>
+
+
+            </div>
+
+            <div class="flex flex-col items-stretch border border-2 rounded-xl w-full h-full">
+                <div class="p-4 text-center">
+                    <p class="font-bold text-xl">รายการอาหาร</p>
+
+                    <div class="mt-4">
+                        <div id="noSelectedMenuLabel" class="p-8">คุณยังไม่ได้เลือกรายการอาหาร</div>
+                        <div id="selectedMenuContainer"></div>
+                    </div>
+
+                </div>
+
+                <div class="w-full p-6 mt-auto">
+                    <div class="font-bold text-xl flex gap-2 items-center justify-end p-4">
+                        <p>ราคาอาหารทั้งหมด : </p>
+                        <p class="text-orange-500" id="totalPriceLabel">0</p>
+                        <p>บาท</p>
+                    </div>
+                    <button id="clearSelectedMenuButton"
+                        class="bg-orange-500 text-white font-bold p-2 rounded-xl w-full">ล้างรายการอาหารที่เลือกไว้</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </footer>
+
+    <script type="module" src="./index.js"></script>
+
+</body>
+
+</html>
