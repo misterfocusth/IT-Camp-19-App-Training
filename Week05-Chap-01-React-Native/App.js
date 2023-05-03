@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import Dialog from "react-native-dialog"
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function App() {
   const [itemName, setItemName] = useState("");
@@ -61,23 +62,21 @@ export default function App() {
     }
 
     return (
-      <View style={styles.centeredView}>
-        <Dialog.Container visible={showInputDialog}>
-          <Dialog.Title>Change selected item name</Dialog.Title>
-          <Dialog.Description>
-            Do you want to update selected item name ? please input new item name to update.
-          </Dialog.Description>
-          <Dialog.Input placeholder={editItemName} onChangeText={(text) => setName(text)}></Dialog.Input>
-          <Dialog.Button label="Cancel" onPress={() => setShowInputDialog(false)} />
-          <Dialog.Button label="Confirm" onPress={() => {
-            if (editItemName) {
-              handleUpdateItemById(selectedItem[0].id, name);
-            } else {
-              setShowInputDialog(false);
-            }
-          }} />
-        </Dialog.Container>
-      </View>
+      <Dialog.Container visible={showInputDialog}>
+        <Dialog.Title>Change selected item name</Dialog.Title>
+        <Dialog.Description>
+          Do you want to update selected item name ? please input new item name to update.
+        </Dialog.Description>
+        <Dialog.Input placeholder={editItemName} onChangeText={(text) => setName(text)}></Dialog.Input>
+        <Dialog.Button label="Cancel" onPress={() => setShowInputDialog(false)} />
+        <Dialog.Button label="Confirm" onPress={() => {
+          if (editItemName) {
+            handleUpdateItemById(selectedItem[0].id, name);
+          } else {
+            setShowInputDialog(false);
+          }
+        }} />
+      </Dialog.Container>
     )
   }
 
@@ -116,12 +115,32 @@ export default function App() {
               </View>
 
               <View style={{ flex: 1, flexDirection: "row", gap: 12, justifyContent: "flex-end" }}>
-                <Text onPress={() => {
-                  setEditItemName(item.name)
-                  setSelectedItemId(item.id)
-                  setShowInputDialog(true)
-                }}>Edit</Text>
-                <Text onPress={() => handleDeleteItemById(item.id)}>Delete</Text>
+                <Icon.Button
+                  name="edit"
+                  size={16}
+                  backgroundColor={"#E67E22"}
+                  iconStyle={{
+                    marginRight: 0,
+                  }}
+                  onPress={() => {
+                    setEditItemName(item.name)
+                    setSelectedItemId(item.id)
+                    setShowInputDialog(true)
+                  }}
+                >
+                </Icon.Button>
+                <Icon.Button
+                  name="delete"
+                  size={16}
+                  backgroundColor={"#E74C3C"}
+                  iconStyle={{
+                    marginRight: 0,
+                  }}
+                  onPress={() => {
+                    handleDeleteItemById(item.id)
+                  }}
+                >
+                </Icon.Button>
               </View>
             </View>
           )
